@@ -1,3 +1,2 @@
 #!/bin/bash
 echo '#include <stdio.h> ; int main(void) { printf("Hello, World!\n"); return 0; }' > 0-main.c ; gcc -E 0-main.c -o c
-
