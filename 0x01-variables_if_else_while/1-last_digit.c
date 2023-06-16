@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <stdio.h> // Added for printf function
+#include <stdio.h> /* Added for printf function */
 #include <time.h>
 
 /**
