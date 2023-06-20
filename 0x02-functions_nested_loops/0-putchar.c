@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * main -The code's  Entry point
+ *
+ * Return: 0 (Success)
+ */
 int main(void)
 {
     _putchar('_');
@@ -12,14 +17,6 @@ int main(void)
     _putchar('r');
     _putchar('\n');
 
-    return 0;
-}
-
-int _putchar(char c)
-{
-    /* Implementation of _putchar using the write syscall */
-    if (write(1, &c, 1) == -1)
-        return -1;
-    return 0;
+    return (0);
 }
 
