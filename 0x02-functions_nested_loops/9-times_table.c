@@ -9,21 +9,28 @@ void times_table(void)
 
 	for (i = 0; i <= 9; i++)
 	{
-		for (j = 0; j <= 9; j++)
+		_putchar('0'); /* Print the first digit of the row */
+		_putchar(',');
+		_putchar(' ');
+
+		for (j = 1; j <= 9; j++)
 		{
 			product = i * j;
 
-			if (j != 0)
+			if (product < 10)
+				_putchar(' '); /* Extra space for single-digit numbers */
+			else
+				_putchar((product / 10) + '0'); /* Print the first digit of the product */
+
+			_putchar((product % 10) + '0'); /* Print the second digit of the product */
+
+			if (j != 9)
 			{
 				_putchar(',');
 				_putchar(' ');
 			}
-
-			if (product < 10)
-				_putchar(' ');
-
-			_putchar((product % 10) + '0');
 		}
+
 		_putchar('\n');
 	}
 }
