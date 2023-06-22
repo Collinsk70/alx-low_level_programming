@@ -9,8 +9,8 @@ int main(void)
 {
         int i;
 
-        i = 0;  // Change the value of i to 0
-        positive_or_negative(i);
+        i = 0;
+        positive_or_negative(0); // Change the argument to 0
 
         return (0);
 }
