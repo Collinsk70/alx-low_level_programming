@@ -22,7 +22,7 @@ void puts_half(char *str)
 	}
 	else
 	{
-		start_index = (length - 1) / 2;
+		start_index = (length + 1) / 2;
 	}
 
 	/* Print the second half of the string */
