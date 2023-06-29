@@ -24,5 +24,5 @@ char *_strncat(char *dest, const char *src, int n)
 
 	*ptr = '\0';
 
-	return dest;
+	return (dest);
 }
