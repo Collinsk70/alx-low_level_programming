@@ -26,4 +26,3 @@ char *_strncat(char *dest, const char *src, int n)
 
 	return dest;
 }
-
