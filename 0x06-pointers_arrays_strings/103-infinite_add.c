@@ -21,7 +21,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		len2++;
 
 	/* Check if the result can fit in the buffer */
-	if (len1 >= size_r || len2 >= size_r)
+	if (len1 + 1 >= size_r || len2 + 1 >= size_r)
 		return (0);
 
 	/* Add the numbers from right to left */
@@ -35,23 +35,16 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		sum %= 10;
 
 		/* Check if the result can fit in the buffer */
-		if (i + j + 3 >= size_r)
+		if (size_r <= 2 || (i + j + 3) >= size_r)
 			return (0);
 
 		/* Store the result digit */
-		r[i + j + 1] = sum + '0';
+		r[i + j + 2] = sum + '0';
 	}
 
 	/* Null-terminate the result */
 	r[i + j + 2] = '\0';
 
-	/* Reverse the result in the buffer */
-	for (i = 0, j = len1 + len2 - 1; i < j; i++, j--)
-	{
-		char temp = r[i];
-		r[i] = r[j];
-		r[j] = temp;
-	}
-
 	return (r);
 }
+
