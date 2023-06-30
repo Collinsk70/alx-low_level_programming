@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * infinite_add - Adds two numbers
@@ -15,10 +16,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int i = 0, j = 0;
 
 	/* Calculate the lengths of the numbers */
-	while (n1[len1] != '\0')
-		len1++;
-	while (n2[len2] != '\0')
-		len2++;
+	len1 = strlen(n1);
+	len2 = strlen(n2);
 
 	/* Check if the result can fit in the buffer */
 	if (len1 + 1 >= size_r || len2 + 1 >= size_r)
@@ -35,16 +34,15 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		sum %= 10;
 
 		/* Check if the result can fit in the buffer */
-		if (size_r <= 2 || (i + j + 3) >= size_r)
+		if (size_r <= 1 || (i + j + 2) >= size_r)
 			return (0);
 
 		/* Store the result digit */
-		r[i + j + 2] = sum + '0';
+		r[i + j + 1] = sum + '0';
 	}
 
 	/* Null-terminate the result */
-	r[i + j + 2] = '\0';
+	r[i + j + 1] = '\0';
 
 	return (r);
 }
-
