@@ -12,27 +12,27 @@ unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int length = 0;
 	int found;
+	char *accept_ptr;
 
 	while (*s)
 	{
 		found = 0;
+		accept_ptr = accept;
 
-		/* Check if the current character is present in accept */
-		while (*accept)
+		while (*accept_ptr)
 		{
-			if (*accept == *s)
+			if (*accept_ptr == *s)
 			{
 				found = 1;
 				break;
 			}
-			accept++;
+			accept_ptr++;
 		}
 
-		if (found)
-			length++;
-		else
+		if (!found)
 			break;
 
+		length++;
 		s++;
 	}
 
