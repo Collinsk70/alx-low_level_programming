@@ -5,7 +5,7 @@
  * print_program_name - Prints the program name
  * @program_name: The name of the program
  */
-void print_program_name(char *program_name);
+int main(int argc __attribute__((unused)), char *argv[]);
 
 #endif /* MAIN_H */
 
