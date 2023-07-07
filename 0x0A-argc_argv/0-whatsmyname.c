@@ -9,16 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
-	print_program_name(argv[0]);
+	printf("%s\n", argv[0]);
 	return 0;
-}
-
-/**
- * print_program_name - Prints the program name
- * @program_name: The name of the program
- */
-void print_program_name(char *program_name)
-{
-	printf("%s\n", program_name);
 }
 
