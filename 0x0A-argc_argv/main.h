@@ -6,6 +6,7 @@
  * @program_name: The name of the program
  */
 int main(int argc __attribute__((unused)), char *argv[]);
+int count_arguments(int argc);
 
 #endif /* MAIN_H */
 
