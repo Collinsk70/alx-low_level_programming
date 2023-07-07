@@ -1,10 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
 /**
- * main - Multiplies two numbers
- * @argc: Number of arguments
- * @argv: Array of arguments
+ * main - multiplies two numbers
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
  * Return: 0 if successful, 1 if error
  */
@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 	{
 		printf("Error\n");
-		return 1;
+		return (1);
 	}
 
 	num1 = atoi(argv[1]);
@@ -24,5 +24,6 @@ int main(int argc, char *argv[])
 
 	printf("%d\n", result);
 
-	return 0;
+	return (0);
 }
+
