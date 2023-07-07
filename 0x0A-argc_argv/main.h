@@ -8,7 +8,8 @@
 int main(int argc __attribute__((unused)), char *argv[]);
 int main(int argc, char *argv[]);
 int main(int argc, char *argv[]);
-int main(int argc, char *argv[])
+int main(int argc, char *argv[]);
+int is_positive_number(char *str);
 
 #endif /* MAIN_H */
 
