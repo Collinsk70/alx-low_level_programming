@@ -10,8 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-	printf("%d\n", count_arguments(argc));
+    printf("%d\n", argc - 1);
 
-	return (0);
+    return 0;
 }
-
