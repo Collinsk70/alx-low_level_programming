@@ -1,55 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
+#include <ctype.h>
+#include <string.h>
 
 /**
- * main - adds positive numbers
- * @argc: number of arguments
- * @argv: array of arguments
+ * is_all_digits - checks if a string contains only digits
+ * @str: input string
  *
- * Return: 0 if successful, 1 if error
+ * Return: 1 if all characters are digits, 0 otherwise
+ */
+int is_all_digits(char *str)
+{
+	unsigned int i;
+
+	for (i = 0; i < strlen(str); i++)
+	{
+		if (!isdigit(str[i]))
+		{
+			return (0);
+		}
+	}
+
+	return (1);
+}
+
+/**
+ * main - Prints the sum of numbers passed as arguments
+ * @argc: Number of arguments
+ * @argv: Array of arguments
+ *
+ * Return: 0 (Success), 1 (Error)
  */
 int main(int argc, char *argv[])
 {
-    int i, sum = 0;
+	int i;
+	int str_to_int;
+	int sum = 0;
 
-    if (argc == 1)
-    {
-        printf("0\n");
-        return (0);
-    }
+	for (i = 1; i < argc; i++)
+	{
+		if (is_all_digits(argv[i]))
+		{
+			str_to_int = atoi(argv[i]);
+			sum += str_to_int;
+		}
+		else
+		{
+			printf("Error\n");
+			return (1);
+		}
+	}
 
-    for (i = 1; i < argc; i++)
-    {
-        if (is_positive_number(argv[i]))
-            sum += atoi(argv[i]);
-        else
-        {
-            printf("Error\n");
-            return (1);
-        }
-    }
+	printf("%d\n", sum);
 
-    printf("%d\n", sum);
-    return (0);
+	return (0);
 }
 
-/**
- * is_positive_number - checks if a string is a positive number
- * @str: string to check
- *
- * Return: 1 if positive number, 0 otherwise
- */
-int is_positive_number(char *str)
-{
-    int i = 0;
-
-    while (str[i] != '\0')
-    {
-        if (str[i] < '0' || str[i] > '9')
-            return (0);
-        i++;
-    }
-
-    return (1);
-}

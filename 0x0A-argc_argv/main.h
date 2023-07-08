@@ -12,6 +12,7 @@ int main(int argc, char *argv[]);
 int is_positive_number(char *str);
 int main(int argc, char *argv[]);
 int main(int argc, char *argv[]);
+int is_all_digits(char *str);
 
 #endif /* MAIN_H */
 
