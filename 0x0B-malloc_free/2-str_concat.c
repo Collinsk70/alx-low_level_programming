@@ -29,7 +29,7 @@ char *str_concat(char *s1, char *s2)
 	/* Allocate memory for the concatenated string */
 	concatenated = malloc((len1 + len2 + 1) * sizeof(char));
 	if (concatenated == NULL)
-		return NULL;
+		return (NULL);
 
 	/* Copy the contents of s1 to the concatenated string */
 	for (i = 0; i < len1; i++)
@@ -42,6 +42,6 @@ char *str_concat(char *s1, char *s2)
 	/* Add null terminator */
 	concatenated[i + j] = '\0';
 
-	return concatenated;
+	return (concatenated);
 }
 
