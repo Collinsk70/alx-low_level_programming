@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>  // Add this line to include <stdlib.h> header
 #include "main.h"
 
 int main(void)
@@ -13,8 +14,10 @@ int main(void)
         return 1;
     }
     
+    unsigned int i;  // Move the declaration of 'i' outside the loop
+    
     printf("Array contents: ");
-    for (unsigned int i = 0; i < size; i++)
+    for (i = 0; i < size; i++)
     {
         printf("%c ", array[i]);
     }
