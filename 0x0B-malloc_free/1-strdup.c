@@ -16,7 +16,7 @@ char *_strdup(char *str)
 	unsigned int length, i;
 
 	if (str == NULL)
-		return NULL;
+		return (NULL);
 
 	/* Calculate the length of the string */
 	for (length = 0; str[length] != '\0'; length++)
@@ -24,11 +24,11 @@ char *_strdup(char *str)
 
 	duplicate = malloc((length + 1) * sizeof(char));
 	if (duplicate == NULL)
-		return NULL;
+		return (NULL);
 
 	for (i = 0; i <= length; i++)
 		duplicate[i] = str[i];
 
-	return duplicate;
+	return (duplicate);
 }
 
