@@ -14,11 +14,12 @@ char *create_array(unsigned int size, char c)
 	if (size == 0)
 		return NULL;
 
-	char *array = malloc((size + 1) * sizeof(char));
+	char *array = (char *)malloc((size + 1) * sizeof(char));
 	if (array == NULL)
 		return NULL;
 
-	for (unsigned int i = 0; i < size; i++)
+	unsigned int i;
+	for (i = 0; i < size; i++)
 		array[i] = c;
 
 	array[size] = '\0'; /* Add a null terminator at the end */
@@ -50,7 +51,7 @@ void simple_print_buffer(char *buffer, unsigned int size)
 }
 
 /**
- * main - check the code
+ * main - entry point of the program
  *
  * Return: Always 0
  */
@@ -61,12 +62,13 @@ int main(void)
 	buffer = create_array(98, 'H');
 	if (buffer == NULL)
 	{
-		printf("failed to allocate memory\n");
+		printf("Failed to allocate memory\n");
 		return (1);
 	}
 
 	simple_print_buffer(buffer, 98);
 	free(buffer);
+
 	return (0);
 }
 
