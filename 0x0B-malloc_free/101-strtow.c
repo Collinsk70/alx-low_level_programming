@@ -10,7 +10,7 @@ void free_words(char **words);
  * strtow - splits a string into words
  * @str: the string to split
  *
- * Return: Pointer to an array of strings (words), or NULL if str is NULL or empty
+ * Return: Pointer to an array of strings (words),
  *         or if memory allocation fails
  */
 char **strtow(char *str)
