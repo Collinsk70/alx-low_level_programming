@@ -1,30 +1,72 @@
 #include <stdio.h>
-#include <stdlib.h>  // Add this line to include <stdlib.h> header
+#include <stdlib.h>
 #include "main.h"
 
+/**
+ * create_array - creates an array of chars and initializes it with a specific char
+ * @size: the size of the array
+ * @c: the char to initialize the array with
+ *
+ * Return: Pointer to the array, or NULL if it fails
+ */
+char *create_array(unsigned int size, char c)
+{
+	if (size == 0)
+		return NULL;
+
+	char *array = malloc((size + 1) * sizeof(char));
+	if (array == NULL)
+		return NULL;
+
+	for (unsigned int i = 0; i < size; i++)
+		array[i] = c;
+
+	array[size] = '\0'; /* Add a null terminator at the end */
+
+	return array;
+}
+
+/**
+ * simple_print_buffer - prints buffer in hexadecimal
+ * @buffer: the address of memory to print
+ * @size: the size of the memory to print
+ *
+ * Return: Nothing
+ */
+void simple_print_buffer(char *buffer, unsigned int size)
+{
+	unsigned int i = 0;
+
+	while (i < size)
+	{
+		if (i % 10)
+			printf(" ");
+		if (!(i % 10) && i)
+			printf("\n");
+		printf("0x%02x", buffer[i]);
+		i++;
+	}
+	printf("\n");
+}
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0
+ */
 int main(void)
 {
-    unsigned int size = 10;
-    char c = 'A';
-    char *array = create_array(size, c);
-    
-    if (array == NULL)
-    {
-        printf("Failed to create array.\n");
-        return 1;
-    }
-    
-    unsigned int i;  // Move the declaration of 'i' outside the loop
-    
-    printf("Array contents: ");
-    for (i = 0; i < size; i++)
-    {
-        printf("%c ", array[i]);
-    }
-    printf("\n");
-    
-    free(array);
-    
-    return 0;
+	char *buffer;
+
+	buffer = create_array(98, 'H');
+	if (buffer == NULL)
+	{
+		printf("failed to allocate memory\n");
+		return (1);
+	}
+
+	simple_print_buffer(buffer, 98);
+	free(buffer);
+	return (0);
 }
 
