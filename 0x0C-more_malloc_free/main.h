@@ -11,5 +11,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 int multiply(char *num1, char *num2);
 int isNumeric(char *str);
 int getLength(char *str);
+int multiply(char *num1, char *num2);
+int isNumeric(char *str);
+
 #endif /* MAIN_H */
 
