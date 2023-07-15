@@ -2,30 +2,10 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "main.h"
-/**
- * multiply - Multiplies two positive numbers.
- * @num1: The first number as a string.
- * @num2: The second number as a string.
- *
- * Return: The product of num1 and num2.
- */
-int multiply(char *num1, char *num2);
 
-/**
- * isNumeric - Checks if a string is composed only of digits.
- * @str: The string to be checked.
- *
- * Return: 1 if the string is numeric, 0 otherwise.
- */
+int multiply(char *num1, char *num2);
 int isNumeric(char *str);
 
-/**
- * main - Entry point of the program.
- * @argc: The number of command-line arguments.
- * @argv: An array of pointers to the arguments.
- *
- * Return: 0 on success, 98 on error.
- */
 int main(int argc, char *argv[])
 {
     if (argc != 3) {
@@ -36,25 +16,19 @@ int main(int argc, char *argv[])
     char *num1 = argv[1];
     char *num2 = argv[2];
 
+    int result;
     if (!isNumeric(num1) || !isNumeric(num2)) {
         printf("Error\n");
         return 98;
     }
 
-    int result = multiply(num1, num2);
+    result = multiply(num1, num2);
 
     printf("%d\n", result);
 
     return 0;
 }
 
-/**
- * multiply - Multiplies two positive numbers.
- * @num1: The first number as a string.
- * @num2: The second number as a string.
- *
- * Return: The product of num1 and num2.
- */
 int multiply(char *num1, char *num2)
 {
     int length1 = 0;
@@ -109,12 +83,6 @@ int multiply(char *num1, char *num2)
     return finalResult;
 }
 
-/**
- * isNumeric - Checks if a string is composed only of digits.
- * @str: The string to be checked.
- *
- * Return: 1 if the string is numeric, 0 otherwise.
- */
 int isNumeric(char *str)
 {
     while (*str) {
