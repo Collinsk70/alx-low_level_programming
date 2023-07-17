@@ -4,47 +4,49 @@
 #include "dog.h"
 
 /**
- * new_dog - Creates a new dog.
- * @name: Name of the dog.
- * @age: Age of the dog.
- * @owner: Owner of the dog.
+ * new_dog - Creates a new dog
+ * @name: Pointer to dog's name
+ * @age: Age of the dog
+ * @owner: Poininter to owner
  *
- * Return: Pointer to the new dog, or NULL if it fails.
+ * Return: Pointer to created dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *newDog;
-	char *cpyName, *cpyOwner;
-	int lenName = 0, lenOwner = 0, i;
+    dog_t *newDog;
+    char *nameCopy, *ownerCopy;
+    int nameLen, ownerLen;
 
-	if (name == NULL || owner == NULL)
-		return (NULL);
+    /* Calculate the lengths of name and owner */
+    nameLen = strlen(name);
+    ownerLen = strlen(owner);
 
-	while (name[lenName])
-		lenName++;
-	while (owner[lenOwner])
-		lenOwner++;
+    /* Allocate memory for the new dog structure */
+    newDog = malloc(sizeof(dog_t));
+    if (newDog == NULL)
+        return (NULL);
 
-	newDog = malloc(sizeof(dog_t));
-	if (newDog == NULL)
-		return (NULL);
+    /* Allocate memory for the copies of name and owner */
+    nameCopy = malloc((nameLen + 1) * sizeof(char));
+    ownerCopy = malloc((ownerLen + 1) * sizeof(char));
 
-	cpyName = malloc(lenName + 1);
-	if (cpyName == NULL)
-		return (NULL);
-	for (i = 0; name[i]; i++)
-		cpyName[i] = name[i];
-	cpyName[i] = '\0';
+    if (nameCopy == NULL || ownerCopy == NULL)
+    {
+        free(newDog);
+        free(nameCopy);
+        free(ownerCopy);
+        return (NULL);
+    }
 
-	cpyOwner = malloc(lenOwner + 1);
-	if (cpyOwner == NULL)
-		return (NULL);
-	for (i = 0; owner[i]; i++)
-		cpyOwner[i] = owner[i];
-	cpyOwner[i] = '\0';
+    /* Copy name and owner to the allocated memory */
+    strcpy(nameCopy, name);
+    strcpy(ownerCopy, owner);
 
-	newDog->name = cpyName;
-	newDog->age = age;
-	newDog->owner = cpyOwner;
-	return (newDog);
+    /* Set the new dog's attributes */
+    newDog->name = nameCopy;
+    newDog->age = age;
+    newDog->owner = ownerCopy;
+
+    return (newDog);
 }
+
