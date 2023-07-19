@@ -9,7 +9,7 @@
  * the function pointed to by the function pointer with the provided name as an argument,
  * effectively printing the name.
  */
-void print_name(char *name, void (*f)(char *)) {
-    f(name);
+void print_name(char *name, void (*f)(char *))
+{
+	f(name);
 }
-
