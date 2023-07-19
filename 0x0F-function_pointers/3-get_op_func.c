@@ -1,6 +1,4 @@
 #include "3-calc.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 /**
  * get_op_func - Function to get the appropriate function for the operator
@@ -19,15 +17,15 @@ int (*get_op_func(char *s))(int, int)
         {"%", op_mod},
         {NULL, NULL}
     };
-int i;
+    int i = 0;
 
-	i = 0;
-	while (i < 5)
-	{
-		if (ops[i].op[0] == s[0])
-			return (ops[i].f);
-		i++;
-	}
-	return (NULL);
+    while (ops[i].op)
+    {
+        if (*(ops[i].op) == *s)
+            return (ops[i].f);
+        i++;
+    }
+
+    return (NULL);
 }
 
