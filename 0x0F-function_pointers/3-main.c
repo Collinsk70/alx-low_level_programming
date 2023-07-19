@@ -1,46 +1,41 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "3-calc.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
- * main - Entry point of the program
- * @argc: The number of command-line arguments
- * @argv: An array of pointers to the arguments
- *
- * Return: Always 0.
+ * main - main function
+ * @argc: argument count
+ * @argv: string of arguments in array
+ * Return: 0
  */
+
 int main(int argc, char *argv[])
 {
-    int num1, num2;
-    int (*op_func)(int, int);
-    int result;
+	int a, b;
+	int (*o)(int, int);
 
-    if (argc != 4)
-    {
-        printf("Error\n");
-        return (98);
-    }
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+	if (argv[2][1] != '\0')
+	{
+		printf("Error\n");
+		exit(99);
+	}
 
-    num1 = atoi(argv[1]);
-    num2 = atoi(argv[3]);
+	o = get_op_func(argv[2]);
+	if (o == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 
-    op_func = get_op_func(argv[2]);
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
 
-    if (op_func == NULL)
-    {
-        printf("Error\n");
-        return (99);
-    }
+	printf("%d\n", o(a, b));
 
-    if ((*argv[2] == '/' || *argv[2] == '%') && num2 == 0)
-    {
-        printf("Error\n");
-        return (100);
-    }
-
-    result = op_func(num1, num2);
-    printf("%d\n", result);
-
-    return (0);
+	return (0);
 }
-
