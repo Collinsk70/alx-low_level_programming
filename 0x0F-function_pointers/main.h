@@ -1,9 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdio.h>
-
-int print_name(char *name, void (*f)(char *));
+/* Function prototype for the function to print a name using the function pointer */
+void print_name(char *name, void (*f)(char *));
 
 #endif /* MAIN_H */
 
