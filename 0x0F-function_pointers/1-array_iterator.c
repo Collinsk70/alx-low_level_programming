@@ -9,11 +9,10 @@
  * This function takes an array
  * It then applies the specified function to each element of the array.
  */
-void array_iterator(int *array, size_t size, void (*action)(int)) {
-    if (array != NULL && action != NULL) {
-        for (size_t i = 0; i < size; i++) {
-            action(array[i]);
-        }
-    }
-}
+void array_iterator(int *array, size_t size, void (*action)(int))
+{
+	size_t i;
 
+	for (i = 0; i < size; i++)
+		action(array[i]);
+}
