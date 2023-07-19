@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <udis86.h>
 
 /**
  * print_opcodes - Function to print the opcodes of its own main function
