@@ -3,87 +3,59 @@
 #include "variadic_functions.h"
 
 /**
- * print_char - Print a character.
- * @arg_list: Argument list containing the character to print.
- */
-void print_character(va_list arg_list)
-{
-    printf("%c", va_arg(arg_list, int));
-}
-
-/**
- * print_integer - Print an integer.
- * @arg_list: Argument list containing the integer to print.
- */
-void print_integer(va_list arg_list)
-{
-    printf("%d", va_arg(arg_list, int));
-}
-
-/**
- * print_floating - Print a floating-point number.
- * @arg_list: Argument list containing the floating-point number to print.
- */
-void print_floating(va_list arg_list)
-{
-    printf("%f", va_arg(arg_list, double));
-}
-
-/**
- * print_string - Print a string.
- * @arg_list: Argument list containing the string to print.
- */
-void print_string(va_list arg_list)
-{
-    char *str = va_arg(arg_list, char *);
-
-    if (!str)
-    {
-        printf("(nil)");
-        return;
-    }
-    printf("%s", str);
-}
-
-/**
- * print_all - Print any combination of characters, integers, floats, and strings.
- * @format: A string containing format characters representing the types of arguments.
- *           c: character
- *           i: integer
- *           f: float
- *           s: string (if the string is NULL, print (nil) instead)
+ * print_all - Print arguments based on the provided format.
+ * @format: A string containing the format characters for the arguments.
+ *            c: char
+ *            i: integer
+ *            f: float
+ *            s: char * (if the string is NULL, print (nil) instead)
+ *
+ * Return: void
  */
 void print_all(const char * const format, ...)
 {
-    print_format format_list[] = {
-        {"c", print_character},
-        {"i", print_integer},
-        {"f", print_floating},
-        {"s", print_string},
-        {NULL, NULL}
-    };
-    va_list args;
-    char *separator = "";
-    int i = 0;
-    int j = 0;
+	va_list args;
+	char *str_arg;
+	int int_arg;
+	char char_arg;
+	float float_arg;
+	int i = 0;
 
-    va_start(args, format);
-    while (format && format[i])
-    {
-        while (format_list[j].format_char)
-        {
-            if (*format_list[j].format_char == format[i])
-            {
-                printf("%s", separator);
-                format_list[j].print_func(args);
-                separator = ", ";
-            }
-            ++j;
-        }
-        j = 0;
-        ++i;
-    }
-    printf("\n");
-    va_end(args);
+	va_start(args, format);
+
+	while (format && format[i])
+	{
+		switch (format[i])
+		{
+			case 'c':
+				char_arg = va_arg(args, int);
+				printf("%c", char_arg);
+				break;
+			case 'i':
+				int_arg = va_arg(args, int);
+				printf("%d", int_arg);
+				break;
+			case 'f':
+				float_arg = va_arg(args, double);
+				printf("%f", float_arg);
+				break;
+			case 's':
+				str_arg = va_arg(args, char *);
+				if (str_arg == NULL)
+					str_arg = "(nil)";
+				printf("%s", str_arg);
+				break;
+			default:
+				i++;
+				continue;
+		}
+
+		if (format[i + 1] != '\0')
+			printf(", ");
+
+		i++;
+	}
+
+	va_end(args);
+	printf("\n");
 }
-
