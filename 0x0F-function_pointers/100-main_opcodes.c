@@ -2,33 +2,36 @@
 #include <stdlib.h>
 
 /**
- * print_main_opcodes - Prints the opcodes of the main function.
- * @num_bytes: The number of bytes to print from the main function.
+ * main - Prints the opcodes of the main function.
+ * @argc: The number of arguments passed to the program.
+ * @argv: An array of strings containing the arguments.
+ *
+ * Return: 0 on success.
  */
-int main(int a, char *b[])
+int main(int argc, char *argv[])
 {
-	int bts, i;
+	int num_bytes, i;
 
-	if (a != 2)
+	if (argc != 2)
 	{
 		printf("Error\n");
 		exit(1);
 	}
 
-	bts = atoi(b[1]);
+	num_bytes = atoi(argv[1]);
 
-	if (bts < 0)
+	if (num_bytes < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
 
 	/* Print the opcodes of the main function */
-	unsigned char *adrs = (unsigned char *)&main;
-	for (i = 0; i < bts; i++)
+	unsigned char *address = (unsigned char *)&main;
+	for (i = 0; i < num_bytes; i++)
 	{
-		printf("%02x", adrs[i]);
-		if (i < bts - 1)
+		printf("%02x", address[i]);
+		if (i < num_bytes - 1)
 			printf(" ");
 	}
 	printf("\n");
