@@ -5,10 +5,10 @@
 /**
  * print_all - Print arguments based on the provided format.
  * @format: A string containing the format characters for the arguments.
- *           c: char
- *           i: integer
- *           f: float
- *           s: char * (if the string is NULL, print (nil) instead)
+ *            c: char
+ *            i: integer
+ *            f: float
+ *            s: char * (if the string is NULL, print (nil) instead)
  *
  * Return: void
  */
