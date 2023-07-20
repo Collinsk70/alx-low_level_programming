@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 
 	/* Print the opcodes of the main function */
 	unsigned char *address = (unsigned char *)&main;
+
 	for (i = 0; i < num_bytes; i++)
 	{
 		printf("%02x", address[i]);
