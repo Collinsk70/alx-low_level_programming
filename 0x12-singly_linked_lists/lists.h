@@ -3,7 +3,14 @@
 
 #include <stddef.h> /* For size_t */
 
-/* Define the list_t structure */
+/**
+ * struct list_s - A singly linked list node structure
+ * @str: The string value to be stored in the node
+ * @len: The length of the string
+ * @next: A pointer to the next node in the list
+ *
+ * Description: A node structure for singly linked lists.
+ */
 typedef struct list_s
 {
 	char *str;
