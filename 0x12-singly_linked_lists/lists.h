@@ -1,5 +1,5 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef LISTS_H
+#define LISTS_H
 
 #include <stddef.h> /* For size_t */
 
@@ -7,16 +7,12 @@
 typedef struct list_s
 {
 	char *str;
+	size_t len;
 	struct list_s *next;
 } list_t;
 
-/**
- * print_list - Prints all elements of a list_t linked list.
- * @h: A pointer to the head of the list_t list.
- *
- * Return: The number of nodes in the list.
- */
+/* Function prototype to print all elements of the list */
 size_t print_list(const list_t *h);
 
-#endif /* LIST_H */
+#endif /* LISTS_H */
 
