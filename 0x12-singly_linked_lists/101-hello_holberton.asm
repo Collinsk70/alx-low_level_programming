@@ -1,24 +1,19 @@
 section .data
-    hello_msg db "Hello, Holberton", 0
-    format db "%s", 10, 0
+    hello_msg db "Hello, Holberton", 0x0A ; Null-terminated string with a new line
 
 section .text
-    extern printf
-
-global _start
+    global _start
 
 _start:
-    ; Call printf to print the message
-    mov rdi, format
+    ; Write system call (syscall number 1) to stdout (file descriptor 1)
+    mov rax, 1
+    mov rdi, 1
     mov rsi, hello_msg
-    xor rax, rax ; Clear rax to indicate no vector registers used for varargs
-    call printf
+    mov rdx, 16 ; The length of the message
+    syscall
 
-    ; Exit the program
-    xor rdi, rdi
-    call exit
-
-section .bss
-    ; Reserve space for the return value of printf
-    resb 8
+    ; Exit system call (syscall number 60)
+    mov rax, 60
+    xor rdi, rdi ; Return 0 as the exit status
+    syscall
 
