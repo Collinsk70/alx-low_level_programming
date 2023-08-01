@@ -19,7 +19,6 @@ listint_t *insert_nodeint_at_index(listint_t **head,
 
 	/* Allocate memory for the new node */
 	new_node = malloc(sizeof(listint_t));
-
 	if (new_node == NULL)
 		return (NULL);
 
@@ -31,17 +30,14 @@ listint_t *insert_nodeint_at_index(listint_t **head,
 	{
 		new_node->next = *head;
 		*head = new_node;
-
 		return (new_node);
 	}
 
 	/* Traverse the list to find the node before the desired index */
 	current = *head;
-
 	while (current != NULL && count < idx - 1)
 	{
 		current = current->next;
-
 		count++;
 	}
 
@@ -49,7 +45,6 @@ listint_t *insert_nodeint_at_index(listint_t **head,
 	if (current == NULL)
 	{
 		free(new_node);
-
 		return (NULL);
 	}
 
