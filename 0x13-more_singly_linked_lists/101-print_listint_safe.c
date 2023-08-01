@@ -42,8 +42,8 @@ size_t print_listint_safe(const listint_t *head)
 
 	loop_node = find_listint_loop((listint_t *) head);
 
-	for (len = 0, has_loop = 1; 
-			(head != loop_node || has_loop) && head != NULL; len++)
+	for (len = 0, has_loop = 1; (head != loop_node || has_loop) && head != NULL; 
+			len++)
 	{
 		printf("[%p] %d\n", (void *) head, head->n);
 		if (head == loop_node)
