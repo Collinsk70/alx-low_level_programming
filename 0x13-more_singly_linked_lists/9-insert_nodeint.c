@@ -11,7 +11,8 @@
  *
  * Return: The address of the new node, or NULL if it failed.
  */
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
+listint_t *insert_nodeint_at_index(listint_t **head, 
+		unsigned int idx, int n)
 {
 	listint_t *new_node, *current;
 	unsigned int count = 0;
@@ -34,7 +35,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (new_node);
 	}
 
-	/* Traverse the list to find the node before the desired index */
+	/* Traverse the list to find the node before the index */
 	current = *head;
 
 	while (current != NULL && count < idx - 1)
@@ -43,7 +44,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		count++;
 	}
 
-	/* If current is NULL, the index is not possible, so return NULL */
+	/* If current is NULL, the index is not possible, so retu*/
 	if (current == NULL)
 	{
 		free(new_node);
