@@ -7,7 +7,7 @@
  *
  * @head: A pointer to the head of the linked list.
  *
- * Return: Address of the node where the loop starts/returns, NULL if no loop.
+ * Return: Address of the node where the loop starts/returns.
  */
 listint_t *find_listint_loop(listint_t *head)
 {
