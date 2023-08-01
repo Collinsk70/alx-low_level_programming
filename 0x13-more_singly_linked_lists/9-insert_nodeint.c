@@ -35,19 +35,21 @@ listint_t *insert_nodeint_at_index(listint_t **head,
 		return (new_node);
 	}
 
-	/* Traverse the list to find the node before the index */
+	/* Traverse the list to find the node before the desired index */
 	current = *head;
 
 	while (current != NULL && count < idx - 1)
 	{
 		current = current->next;
+
 		count++;
 	}
 
-	/* If current is NULL, the index is not possible, so retu*/
+	/* If current is NULL, the index is not possible, so return NULL */
 	if (current == NULL)
 	{
 		free(new_node);
+
 		return (NULL);
 	}
 
