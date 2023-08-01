@@ -3,11 +3,18 @@
 
 #include <stddef.h> /* For size_t */
 
-/* Define the listint_t structure */
+/**
+ * struct listint_s - singly linked list
+ * @n: integer
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ * for integer values
+ */
 typedef struct listint_s
 {
-    int n;
-    struct listint_s *next;
+	int n;
+	struct listint_s *next;
 } listint_t;
 
 /* Function prototype to print all elements of the list */
